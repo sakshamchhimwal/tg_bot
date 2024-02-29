@@ -46,7 +46,10 @@ npm start
 6. After registering go to the bot.
 
 ## Backend .env Setup
-
+```shell
+cd backend
+touch .env
+```
 ```txt
 MONGO_DB_URL = XXXX
 TELEGRAM_API_KEY = XXXX
