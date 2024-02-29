@@ -4,7 +4,7 @@ This bot provides you with the weather details of your location every morning. Y
 <br>
 The Admin can Block/Unblock and Delete the users. Can use CRON type strings for scheduling the updates. The CRON string will be decoded and presented to the Admin for understanding.
 <br>
-The bot within itsels uses CRON to schedule messages for all the unblocked users every morning.
+The bot within itself uses CRON to schedule messages for all the unblocked users every morning.
 
 # Setup
 
