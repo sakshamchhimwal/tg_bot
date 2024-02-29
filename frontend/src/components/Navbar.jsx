@@ -10,8 +10,13 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import { Link } from "react-router-dom";
 
-const pages = ["Stats", "Users", "Schedule"];
+const pages = ["Users", "Schedule"];
+const paths = {
+	Users: "/",
+	Schedule: "/schedule",
+};
 
 function NavBar() {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -25,7 +30,9 @@ function NavBar() {
 	};
 
 	return (
-		<AppBar position="static">
+		<AppBar position="fixed" sx={{
+			top:"0px"
+		}}>
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
 					<WbSunnyIcon
@@ -83,14 +90,19 @@ function NavBar() {
 							}}
 						>
 							{pages.map((page) => (
-								<MenuItem
-									key={page}
-									onClick={handleCloseNavMenu}
+								<Link
+									to={paths[page]}
+									style={{ textDecoration: "none" }}
 								>
-									<Typography textAlign="center">
-										{page}
-									</Typography>
-								</MenuItem>
+									<MenuItem
+										key={page}
+										onClick={handleCloseNavMenu}
+									>
+										<Typography textAlign="center">
+											{page}
+										</Typography>
+									</MenuItem>
+								</Link>
 							))}
 						</Menu>
 					</Box>
@@ -121,13 +133,22 @@ function NavBar() {
 						}}
 					>
 						{pages.map((page) => (
-							<Button
-								key={page}
-								onClick={handleCloseNavMenu}
-								sx={{ my: 2, color: "white", display: "block" }}
+							<Link
+								to={paths[page]}
+								style={{ textDecoration: "none" }}
 							>
-								{page}
-							</Button>
+								<Button
+									key={page}
+									onClick={handleCloseNavMenu}
+									sx={{
+										my: 2,
+										color: "white",
+										display: "block",
+									}}
+								>
+									{page}
+								</Button>
+							</Link>
 						))}
 					</Box>
 				</Toolbar>

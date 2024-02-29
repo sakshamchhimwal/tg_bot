@@ -13,10 +13,10 @@ export const viewAllUsers = async (req: Request, res: Response, next: NextFuncti
 
 export const blockUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { chatId } = req.body;
+        const { chatId, blocked } = req.body;
         const user = await findUser(chatId);
         if (user) {
-            await user.updateOne({ blocked: true });
+            await user.updateOne({ blocked });
             await user.save();
             return res.status(200).send({ "messgae": "BLOCKED_SUCCESSFULLY" });
         } else {

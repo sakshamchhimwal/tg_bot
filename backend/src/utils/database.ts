@@ -4,12 +4,12 @@ import { User } from "../models/user";
 export const getAllUsers = async () => {
     try {
         const allUsers = await User.find();
-        if(allUsers){
+        if (allUsers) {
             return allUsers;
-        }else{
+        } else {
             return null;
         }
-    }catch(err){
+    } catch (err) {
         console.log(err);
         throw err;
     }
